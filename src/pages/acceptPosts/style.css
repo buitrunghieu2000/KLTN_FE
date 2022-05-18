@@ -1,0 +1,13 @@
+.postWrapper {
+  display: flex;
+}
+
+.postImgaes {
+  width: 50%;
+  padding: 20px;
+}
+
+.postContent {
+  width: 50%;
+  padding: 20px;
+}

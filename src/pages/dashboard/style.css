@@ -1,0 +1,12 @@
+.homeWidgets {
+  display: flex;
+  margin: 20px;
+}
+
+.wLeft {
+  flex: 1;
+}
+
+.wRight {
+  flex: 2;
+}

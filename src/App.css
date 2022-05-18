@@ -1,0 +1,17 @@
+.App {
+  font-family: "Poppins", sans-serif;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+.appContainer {
+  display: flex;
+}
+.appSidebar {
+  flex: 1;
+}
+
+.appLayoutContent {
+  flex: 4;
+}
