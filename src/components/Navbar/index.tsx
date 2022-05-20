@@ -10,6 +10,7 @@ const Navbar = (props: Props) => {
   const history = useHistory();
   const handleLogout = () => {
     actionAuth.Logout();
+    history.push("/");
   };
   return (
     <div className="topbar">

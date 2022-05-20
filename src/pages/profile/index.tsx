@@ -16,11 +16,7 @@ function PersonalPage({}: Props) {
       />
       <h1>{stateAuth.auth?.user?.name}</h1>
       <h5>{stateAuth.auth?.user?.phone}</h5>
-      <p>
-        A web developer is a programmer who specializes in, or is specifically
-        engaged in, the development of World Wide Web applications, or
-        applications that are run over HTTP from a web server to a web browser.
-      </p>
+      <p style={{ textAlign: "center" }}>A web site developer.</p>
       <ul>
         <li>
           <a href="#">

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Redirect, Route, RouteProps, useHistory } from "react-router-dom";
 import { DFRole } from "../constant/DFRole";
 import useAuth from "../store/auth";
+import { LoadingLMS } from "./Loading";
 
 interface IPrivateRoute extends RouteProps {
   roleRoute?: Array<number>;
@@ -38,5 +39,5 @@ export const PrivateRoute = (props: IPrivateRoute) => {
   // const isLoggedIn = localStorage.getItem('token')
   // if (!isLoggedIn) return <Redirect to='/' />
   if (acceptRoute) return <Route {...props} />;
-  return <h1>Loading ...</h1>;
+  return <LoadingLMS loading={true} />;
 };

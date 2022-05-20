@@ -1,68 +1,57 @@
-import "./style.css";
 import {
-  LineStyle,
-  Timeline,
-  TrendingUp,
-  PermIdentity,
-  Storefront,
   AttachMoney,
   BarChart,
-  MailOutline,
-  DynamicFeed,
   ChatBubbleOutline,
-  WorkOutline,
+  DynamicFeed,
+  LineStyle,
+  MailOutline,
   Report,
+  Timeline,
+  TrendingUp,
+  WorkOutline,
+  CheckCircle,
+  PermIdentity,
+  PostAdd,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "./style.css";
 
 export default function Sidebar() {
-  const [name, setName] = useState(0);
-  const handleChangeName = (i: number) => {
-    setName(i);
-  };
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-            <Link to="/" className="link">
-              <li
-                onClick={() => {
-                  handleChangeName(0);
-                }}
-                className={`sidebarListItem ${name === 0 && "active"}`}
-              >
-                <LineStyle className="sidebarIcon" />
-                Home
-              </li>
-            </Link>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
+            <li>
+              <NavLink to="/" activeClassName="sidebarListItem active" exact>
+                <LineStyle className="sidebarIcon" /> Home
+              </NavLink>
             </li>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
+            <li>
+              <NavLink
+                to="/acceptpost"
+                activeClassName="sidebarListItem active"
+              >
+                <CheckCircle className="sidebarIcon" /> Acceptpost
+              </NavLink>
             </li>
           </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            <Link to="/userlist" className="link">
-              <li
-                onClick={() => {
-                  handleChangeName(1);
-                }}
-                className={`sidebarListItem ${name === 1 && "active"}`}
-              >
-                <PermIdentity className="sidebarIcon" />
-                Users
-              </li>
-            </Link>
-            <Link to="/postslist" className="link">
+            <li>
+              <NavLink to="/userlist" activeClassName="sidebarListItem active">
+                <PermIdentity className="sidebarIcon" /> User
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/postslist" activeClassName="sidebarListItem active">
+                <PostAdd className="sidebarIcon" /> Post
+              </NavLink>
+            </li>
+            {/* <Link to="/postslist" className="link">
               <li
                 onClick={() => {
                   handleChangeName(2);
@@ -72,7 +61,7 @@ export default function Sidebar() {
                 <Storefront className="sidebarIcon" />
                 Post
               </li>
-            </Link>
+            </Link> */}
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
               Transactions

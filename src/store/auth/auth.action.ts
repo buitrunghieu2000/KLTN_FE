@@ -9,7 +9,7 @@ export const loginAsync =
   (payload: IReqLogin) =>
   async ({ setState, getState }: Actions) => {
     const result = await authApi.login(payload);
-    console.log(result);
+    // console.log(result);
     if (result.status === 200) {
       saveToLocalStorage("token", result.data.accessToken);
       setState({ ...getState(), isLoggedIn: true });
@@ -22,7 +22,7 @@ export const getUserAsync =
   () =>
   async ({ setState, getState }: Actions) => {
     const result = await authApi.getUser();
-    console.log("123", result);
+    // console.log("123", result);
     if (result.status === 200) {
       setState({ ...getState(), auth: result.data });
       return true;

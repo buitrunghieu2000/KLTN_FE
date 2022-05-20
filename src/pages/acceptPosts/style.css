@@ -1,13 +1,23 @@
-.postWrapper {
+.acpWrapper {
   display: flex;
 }
 
-.postImgaes {
-  width: 50%;
-  padding: 20px;
+.imageList {
+  flex: 2;
 }
 
-.postContent {
-  width: 50%;
-  padding: 20px;
+.content {
+  flex: 1;
+}
+.swiper-container {
+  width: 700px;
+}
+
+.swiper-pagination {
+  bottom: 0;
+  padding-bottom: 10px;
+}
+
+.swiper-wrapper {
+  padding-inline-start: 0;
 }

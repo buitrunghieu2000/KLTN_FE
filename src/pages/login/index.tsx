@@ -1,12 +1,11 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import "./style.css";
-import loginApi from "../../api/auth/authApi";
-import postApi from "../../api/post/postApi";
-import useAuth from "../../store/auth";
 import { useHistory } from "react-router-dom";
-import authApi from "../../api/auth/authApi";
+import useAuth from "../../store/auth";
+import { notifyError, notifySuccess } from "../../utils/notify";
+import { signInSchema } from "../../validate/auth";
+import "./style.css";
 type Props = {};
 
 const Login = (props: Props) => {
@@ -17,15 +16,19 @@ const Login = (props: Props) => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
-    // resolver: yupResolver(signInSchema),
+    resolver: yupResolver(signInSchema),
   });
 
   const submit = async (data: any, e: any) => {
     e.preventDefault();
 
     const result = await actionAuth.loginAsync(data);
-    if (!result) alert("Sai gi roi ne");
-    else history.push("/");
+    console.log(result);
+    if (!result) notifyError("Sai tài khoản hoặc mật khẩu");
+    else {
+      notifySuccess("Đăng nhập thành công");
+      history.push("/");
+    }
   };
 
   return (
@@ -35,6 +38,7 @@ const Login = (props: Props) => {
         <form onSubmit={handleSubmit(submit)}>
           <div className="txt_field">
             <input type="text" {...register("email")} required />
+
             <span></span>
             <label>Email</label>
           </div>
@@ -45,6 +49,7 @@ const Login = (props: Props) => {
           </div>
           <div className="pass">Forgot Password?</div>
           <input type="submit" value="Login" />
+
           <div className="signup_link">
             Not a member? <a href="#">Signup</a>
           </div>
