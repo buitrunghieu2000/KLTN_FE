@@ -152,24 +152,62 @@ export default function UserList() {
                   </button>{" "}
                 </td>
               </tr>
+              <tr>
+                <td>8</td>
+                <td>
+                  <img src="https://drive.google.com/uc?export=view&id=12JjdBJPUSmMTpXwwhyERt8doSQhmLHPX " />
+                </td>
+                <td>Pocket Watch</td>
+                <td>naveen@gmail.com</td>
+                <td>Naveen</td>
+                <td>
+                  {" "}
+                  <button>
+                    <i className="fa-solid fa-pen-to-square"></i>
+                  </button>{" "}
+                  <button>
+                    <i className="fa-solid fa-trash"></i>
+                  </button>{" "}
+                </td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>
+                  <img src="https://drive.google.com/uc?export=view&id=12JjdBJPUSmMTpXwwhyERt8doSQhmLHPX " />
+                </td>
+                <td>Pocket Watch</td>
+                <td>naveen@gmail.com</td>
+                <td>Naveen</td>
+                <td>
+                  {" "}
+                  <button>
+                    <i className="fa-solid fa-pen-to-square"></i>
+                  </button>{" "}
+                  <button>
+                    <i className="fa-solid fa-trash"></i>
+                  </button>{" "}
+                </td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>
+                  <img src="https://drive.google.com/uc?export=view&id=12JjdBJPUSmMTpXwwhyERt8doSQhmLHPX " />
+                </td>
+                <td>Pocket Watch</td>
+                <td>naveen@gmail.com</td>
+                <td>Naveen</td>
+                <td>
+                  {" "}
+                  <button>
+                    <i className="fa-solid fa-pen-to-square"></i>
+                  </button>{" "}
+                  <button>
+                    <i className="fa-solid fa-trash"></i>
+                  </button>{" "}
+                </td>
+              </tr>
             </tbody>
           </table>
-        </div>
-        <div className="pagination">
-          <div>
-            <i className="fa-solid fa-angles-left"></i>
-          </div>
-          <div>
-            <i className="fa-solid fa-chevron-left"></i>
-          </div>
-          <div>1</div>
-          <div>2</div>
-          <div>
-            <i className="fa-solid fa-chevron-right"></i>
-          </div>
-          <div>
-            <i className="fa-solid fa-angles-right"></i>
-          </div>
         </div>
       </div>
     </>

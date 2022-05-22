@@ -8,10 +8,12 @@ type Props = {};
 const Navbar = (props: Props) => {
   const [stateAuth, actionAuth] = useAuth();
   const history = useHistory();
+
   const handleLogout = () => {
-    actionAuth.Logout();
-    history.push("/");
+    actionAuth.logoutAsync();
+    history.push("/Login");
   };
+
   return (
     <div className="topbar">
       <div className="topbarWrapper">

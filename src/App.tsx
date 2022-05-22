@@ -16,37 +16,26 @@ import usePost from "./store/post";
 
 function App() {
   const [stateAuth] = useAuth();
-  const [, actionPost] = usePost();
-  React.useEffect(() => {
-    (async () => {
-      await actionPost.getPostByIdAsync("6280c1856a45d198fa089d02");
-    })();
-  }, []);
+
   return (
     <div className="App">
-      {stateAuth.isLoggedIn === false ? (
-        <Login />
-      ) : (
-        <>
-          <Navbar />
-          <div className="appContainer">
-            <div className="appSidebar">
-              <Sidebar />
-            </div>
-            <div className="appLayoutContent">
-              <Switch>
-                <PrivateRoute path="/" component={Dashboard} exact />
-                <Route path="/login" component={Login} exact />
-                <PrivateRoute path="/userlist" component={UserList} />
-                <PrivateRoute path="/postslist" component={PostsList} />
-                <PrivateRoute path="/acceptpost" component={AcceptPost} />
-                <PrivateRoute path="/personal" component={PersonalPage} exact />
-                <Route component={NotFoundPage} />
-              </Switch>
-            </div>
-          </div>
-        </>
-      )}
+      <Navbar />
+      <div className="appContainer">
+        <div className="appSidebar">
+          <Sidebar />
+        </div>
+        <div className="appLayoutContent">
+          <Switch>
+            <PrivateRoute path="/" component={Dashboard} exact />
+            <Route path="/login" component={Login} exact />
+            <PrivateRoute path="/userlist" component={UserList} />
+            <PrivateRoute path="/postlist" component={PostsList} />
+            <PrivateRoute path="/acceptpost" component={AcceptPost} />
+            <PrivateRoute path="/personal" component={PersonalPage} exact />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
+      </div>
     </div>
   );
 }

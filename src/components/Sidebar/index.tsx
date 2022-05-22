@@ -47,7 +47,7 @@ export default function Sidebar() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/postslist" activeClassName="sidebarListItem active">
+              <NavLink to="/postlist" activeClassName="sidebarListItem active">
                 <PostAdd className="sidebarIcon" /> Post
               </NavLink>
             </li>

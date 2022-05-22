@@ -6,24 +6,17 @@ import useAuth from "../../store/auth";
 import { notifyError, notifySuccess } from "../../utils/notify";
 import { signInSchema } from "../../validate/auth";
 import "./style.css";
-type Props = {};
 
-const Login = (props: Props) => {
-  const [stateAuth, actionAuth] = useAuth();
+const Login = () => {
+  const [, actionAuth] = useAuth();
   const history = useHistory();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(signInSchema),
   });
 
   const submit = async (data: any, e: any) => {
     e.preventDefault();
-
     const result = await actionAuth.loginAsync(data);
-    console.log(result);
     if (!result) notifyError("Sai tài khoản hoặc mật khẩu");
     else {
       notifySuccess("Đăng nhập thành công");

@@ -30,7 +30,7 @@ export const getUserAsync =
     return false;
   };
 
-export const Logout =
+export const logoutAsync =
   () =>
   ({ setState, getState }: Actions) => {
     localStorage.removeItem("token");

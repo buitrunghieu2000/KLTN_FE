@@ -1,19 +1,25 @@
 import { createHook, createStore } from "react-sweet-state";
+import { DETAIL_POST } from "../../models/post.model";
+import {
+  getAllPostAsync,
+  getPostByIdAsync,
+  updatePostStatusAsync,
+} from "./post.action";
 import { selector } from "./post.selector";
-import { getPostByIdAsync } from "./post.action";
-import { POST_MODEL } from "../../models/post.model";
 
 export type State = {
-  postList: Array<POST_MODEL>;
-  postDetail: POST_MODEL | undefined;
+  postList: Array<DETAIL_POST>;
+  totalPost: number;
+  postDetail: DETAIL_POST | undefined;
 };
 
 const initialState: State = {
   postList: [],
+  totalPost: 0,
   postDetail: undefined,
 };
 
-const actions = { getPostByIdAsync };
+const actions = { getPostByIdAsync, getAllPostAsync, updatePostStatusAsync };
 
 const Store = createStore({
   initialState,

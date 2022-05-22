@@ -22,12 +22,6 @@ export const PrivateRoute = (props: IPrivateRoute) => {
     // console.log("123", res);
     if (!res) {
       history.push("/login");
-    } else {
-      //đã đăng nhập
-      // if (roleRoute && !roleRoute.includes(res.payload.role)) {
-      //Kiểm tra khong phai admin
-      history.push("/");
-      // }
     }
     setAcceptRoute(true);
   };

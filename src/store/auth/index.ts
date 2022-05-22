@@ -1,6 +1,6 @@
 import { createHook, createStore } from "react-sweet-state";
 import { selector } from "./auth.selector";
-import { loginAsync, getUserAsync, Logout } from "./auth.action";
+import { loginAsync, getUserAsync, logoutAsync } from "./auth.action";
 import { USER_MODEL } from "../../models/user.model";
 
 export type State = {
@@ -13,7 +13,7 @@ const initialState: State = {
   auth: undefined,
 };
 
-const actions = { loginAsync, getUserAsync, Logout };
+const actions = { loginAsync, getUserAsync, logoutAsync };
 
 const Store = createStore({
   initialState,

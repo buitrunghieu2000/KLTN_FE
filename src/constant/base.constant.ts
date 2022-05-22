@@ -1,0 +1,7 @@
+export enum ENUM_POST_STATUS {
+  WAIT_TO_CONFIRM = 0,
+  REFUSE_CONFIRM = 1,
+  DISPLAYING = 2,
+  CANCELED = 3,
+  EXPIRED = 4,
+}

@@ -1,12 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+import Pagination from "../../components/Pagination";
+import { ENUM_POST_STATUS } from "../../constant/base.constant";
+import usePost from "../../store/post";
 import "./style.css";
 
+const LIMIT = 10;
+
 export default function UserList() {
+  const [statePost, actionPost] = usePost();
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+  React.useEffect(() => {
+    (async () => {
+      await actionPost.getAllPostAsync({
+        status: ENUM_POST_STATUS.WAIT_TO_CONFIRM,
+        page: currentPage,
+        limit: LIMIT,
+      });
+    })();
+  }, [currentPage]);
+
+  const handleRefusedPost = (postId: string) => {
+    (async () => {
+      await actionPost.updatePostStatusAsync(
+        postId,
+        ENUM_POST_STATUS.REFUSE_CONFIRM
+      );
+    })();
+  };
+
+  const handleAcceptPost = (postId: string) => {
+    (async () => {
+      await actionPost.updatePostStatusAsync(
+        postId,
+        ENUM_POST_STATUS.DISPLAYING
+      );
+    })();
+  };
+
   return (
     <>
       <div className="table">
         <div className="table_header">
-          <p>Posts Details</p>
+          <p>All Posts</p>
           <div>
             {" "}
             <input placeholder="search" />{" "}
@@ -18,54 +54,54 @@ export default function UserList() {
             <thead>
               <tr>
                 <th>S No.</th>
-                <th>Avatar</th>
-                <th>Email</th>
+                <th>Image</th>
+                <th>Poster</th>
                 <th>Title</th>
-                <th>Des</th>
+                <th>Description</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=1oL5yePDRKaJ3rwr2_DedGETXfqtF_gv4" />
-                </td>
-                <td>Camera</td>
-                <td>rakhigupta@gmail.com</td>
-                <td>Rakhi Gupta</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-circle-check"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
+              {statePost.postList.map((item, index: number) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <img src={item.image[0]} />
+                  </td>
+                  <td>{item.nameOfPoster}</td>
+                  <td>{item.title}</td>
+                  <td>{item.content}</td>
+                  <td>
+                    {" "}
+                    <button>
+                      <i className="fa-solid fa-pen-to-square"></i>
+                    </button>
+                    <button
+                      onClick={() => {
+                        handleAcceptPost(item._id);
+                      }}
+                    >
+                      <i className="fa-solid fa-circle-check"></i>
+                    </button>
+                    <button
+                      onClick={() => {
+                        handleRefusedPost(item._id);
+                      }}
+                    >
+                      <i className="fa-solid fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
-        <div className="pagination">
-          <div>
-            <i className="fa-solid fa-angles-left"></i>
-          </div>
-          <div>
-            <i className="fa-solid fa-chevron-left"></i>
-          </div>
-          <div>1</div>
-          <div>2</div>
-          <div>
-            <i className="fa-solid fa-chevron-right"></i>
-          </div>
-          <div>
-            <i className="fa-solid fa-angles-right"></i>
-          </div>
-        </div>
+        <Pagination
+          limit={LIMIT}
+          totalPost={statePost.totalPost}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </>
   );
