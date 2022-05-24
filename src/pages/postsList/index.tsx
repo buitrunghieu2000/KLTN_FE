@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import BoxShowImage from "../../components/BoxShowImage";
 import Pagination from "../../components/Pagination";
 import { ENUM_POST_STATUS } from "../../constant/base.constant";
 import usePost from "../../store/post";
 import "./style.css";
 
-const LIMIT = 10;
+const LIMIT = 6;
 
-export default function UserList() {
+export default function PostList() {
   const [statePost, actionPost] = usePost();
+  const [pickedImages, setPickedImages] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(0);
 
   React.useEffect(() => {
@@ -66,7 +68,9 @@ export default function UserList() {
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>
-                    <img src={item.image[0]} />
+                    <div onClick={() => setPickedImages(item.image)}>
+                      <img src={item.image[0]} />
+                    </div>
                   </td>
                   <td>{item.nameOfPoster}</td>
                   <td>{item.title}</td>
@@ -95,14 +99,17 @@ export default function UserList() {
               ))}
             </tbody>
           </table>
+          <Pagination
+            limit={LIMIT}
+            totalPost={statePost.totalPost}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
-        <Pagination
-          limit={LIMIT}
-          totalPost={statePost.totalPost}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
       </div>
+      {pickedImages.length > 0 && (
+        <BoxShowImage images={pickedImages} setImages={setPickedImages} />
+      )}
     </>
   );
 }

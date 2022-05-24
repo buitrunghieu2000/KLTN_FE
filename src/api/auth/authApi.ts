@@ -1,8 +1,8 @@
-import { USER_MODEL } from "../../models/user.model";
+import { ADMIN_MODEL, USER_MODEL } from "../../models/user.model";
 import axiosClient from "../axiosClient";
 import { ReturnReponse } from "../response.interface";
 import { IReqLogin } from "./auth.interface";
-import { IResLogin } from "./auth.type";
+import { IResLogin, IResUserList } from "./auth.type";
 
 const authApi = {
   login(data: IReqLogin): Promise<ReturnReponse<IResLogin>> {
@@ -12,6 +12,14 @@ const authApi = {
 
   getUser(): Promise<ReturnReponse<USER_MODEL>> {
     const url = "auth/get-auth"; //params : page, filter
+    return axiosClient.get(url);
+  },
+
+  getAllUser(
+    page: number,
+    limit: number
+  ): Promise<ReturnReponse<IResUserList>> {
+    const url = `admin/get-all-user?page=${page}&limit=${limit}`; //params : page, filter
     return axiosClient.get(url);
   },
 };

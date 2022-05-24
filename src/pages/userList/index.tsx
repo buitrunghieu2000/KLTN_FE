@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import Pagination from "../../components/Pagination";
+import useAuth from "../../store/auth";
 import "./style.css";
 
 export default function UserList() {
+  const LIMIT = 6;
+  const [stateAuth, actionAuth] = useAuth();
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+  React.useEffect(() => {
+    (async () => {
+      await actionAuth.getAllUserAsync({ page: currentPage, limit: LIMIT });
+    })();
+  }, [currentPage]);
+
   return (
     <>
       <div className="table">
         <div className="table_header">
-          <p>Product Details</p>
+          <p>User List</p>
           <div>
             {" "}
-            <input placeholder="product" />{" "}
+            <input placeholder="user" />{" "}
             <button className="add_new">+ Add New</button>{" "}
           </div>
         </div>
@@ -18,196 +30,42 @@ export default function UserList() {
             <thead>
               <tr>
                 <th>S No.</th>
-                <th>Product</th>
+                <th>Avatar</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Owner</th>
+                <th>Total Posts</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=1oL5yePDRKaJ3rwr2_DedGETXfqtF_gv4" />
-                </td>
-                <td>Camera</td>
-                <td>rakhigupta@gmail.com</td>
-                <td>Rakhi Gupta</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=1evLZhNAss-m_fg9lBys8ULyW1WeOMTkz" />
-                </td>
-                <td>Laptop</td>
-                <td>vejata@gmail.com</td>
-                <td>Vejata</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=12Lof4FhSisnwoQCfpxDUTo4GVr5qWmxB " />
-                </td>
-                <td>Pencil</td>
-                <td>shweta@gmail.com</td>
-                <td>Shweta</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=1mmfcfCVx6S89DCON0gvypzGWX7lwm3tP" />
-                </td>
-                <td>Jeans</td>
-                <td>anjaligupta@gmail.com</td>
-                <td>Anjali Gupta</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=1FqkzzBCVdx39-OpB79cbzYty-k-P03y5" />
-                </td>
-                <td>Iphone</td>
-                <td>adarsh@gmail.com</td>
-                <td>Adarsh</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=1U6xVbcyrPs7k2klDzkXMKA0TqZdFVBsU" />
-                </td>
-                <td>Pocket Golden Watch</td>
-                <td>monti@gmail.com</td>
-                <td>Monti</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=12JjdBJPUSmMTpXwwhyERt8doSQhmLHPX " />
-                </td>
-                <td>Pocket Watch</td>
-                <td>naveen@gmail.com</td>
-                <td>Naveen</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=12JjdBJPUSmMTpXwwhyERt8doSQhmLHPX " />
-                </td>
-                <td>Pocket Watch</td>
-                <td>naveen@gmail.com</td>
-                <td>Naveen</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=12JjdBJPUSmMTpXwwhyERt8doSQhmLHPX " />
-                </td>
-                <td>Pocket Watch</td>
-                <td>naveen@gmail.com</td>
-                <td>Naveen</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>
-                  <img src="https://drive.google.com/uc?export=view&id=12JjdBJPUSmMTpXwwhyERt8doSQhmLHPX " />
-                </td>
-                <td>Pocket Watch</td>
-                <td>naveen@gmail.com</td>
-                <td>Naveen</td>
-                <td>
-                  {" "}
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>{" "}
-                  <button>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>{" "}
-                </td>
-              </tr>
+              {stateAuth.userList.map((item, index: number) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <img src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t1.6435-9/134454217_2852424525075613_6158247242724837492_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=8wqh7dJbgBYAX9hvE3r&_nc_ht=scontent.fsgn5-15.fna&oh=00_AT-xjfQDcusaScpCfAw0htTEFku5kRedsE_bwByaQzNqNw&oe=62B3BF17" />
+                  </td>
+                  <td>{item.idUser.name}</td>
+                  <td>{item.username}</td>
+                  <td>{item.idUser.posts}</td>
+                  <td>
+                    {" "}
+                    <button>
+                      <i className="fa-solid fa-pen-to-square"></i>
+                    </button>
+                    <button>
+                      <i className="fa-solid fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
+          <Pagination
+            limit={LIMIT}
+            totalPost={stateAuth.totalUser}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
       </div>
     </>

@@ -6,7 +6,7 @@ export interface DETAIL_POST {
   title: string;
   content: string;
   nameOfPoster: string;
-  image: Array<any>;
+  image: Array<string>;
   typePost: string;
   on: {
     _id: string;

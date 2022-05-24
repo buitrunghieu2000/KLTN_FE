@@ -1,0 +1,102 @@
+.overlayModal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.modalVisible {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modalVisible .closeButton {
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  top: 25px;
+  right: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 40%;
+  z-index: 1002;
+  cursor: pointer;
+  user-select: none;
+}
+.modalVisible .closeButton:hover {
+  opacity: 60%;
+}
+
+.modalVisible .showTotal {
+  position: fixed;
+  top: 100px;
+  right: 25px;
+  z-index: 1002;
+}
+.modalVisible .showTotal .length {
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  user-select: none;
+}
+
+.modalVisible .mainFrame {
+  width: 100%;
+  height: 75vh;
+}
+.modalVisible .mainFrame img {
+  width: 100%;
+  height: 75vh;
+  object-fit: contain;
+}
+.modalVisible .thumbnail {
+  /* w-full bg-black h-[calc(25vh-10px)] */
+  width: 100%;
+  background-color: black;
+  height: calc(25vh - 10px);
+}
+.modalVisible .thumbnail .container {
+  width: 100%;
+  height: calc(25vh - 10px);
+  cursor: pointer;
+  border: 4px solid black;
+  border-radius: 10px;
+}
+.modalVisible .thumbnail .container.active {
+  border: 4px solid rgb(159, 197, 159);
+}
+.modalVisible .thumbnail .container img {
+  /* object-cover w-full h-full rounded-[6px] */
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+.sliderArrow {
+  /*  active:bg-opacity-70 rounded-[100%] absolute translate-y-[-50%] flex justify-center items-center z-30 */
+  cursor: pointer;
+  background-color: black;
+  border-radius: 100%;
+  position: absolute;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 930;
+}
+.sliderArrow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

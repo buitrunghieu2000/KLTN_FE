@@ -29,6 +29,20 @@ export const getUserAsync =
     }
     return false;
   };
+export const getAllUserAsync =
+  ({ page, limit }: { page: number; limit: number }) =>
+  async ({ setState, getState }: Actions) => {
+    const result = await authApi.getAllUser(page, limit);
+    if (result.status === 200) {
+      setState({
+        ...getState(),
+        userList: result.data.users,
+        totalUser: result.data.total,
+      });
+      return true;
+    }
+    return false;
+  };
 
 export const logoutAsync =
   () =>

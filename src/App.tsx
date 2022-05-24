@@ -8,15 +8,11 @@ import Sidebar from "./components/Sidebar";
 import AcceptPost from "./pages/acceptPosts";
 import Dashboard from "./pages/dashboard";
 import Login from "./pages/login";
-import PostsList from "./pages/postsList";
+import PostList from "./pages/postsList";
 import PersonalPage from "./pages/profile";
 import UserList from "./pages/userList";
-import useAuth from "./store/auth";
-import usePost from "./store/post";
 
 function App() {
-  const [stateAuth] = useAuth();
-
   return (
     <div className="App">
       <Navbar />
@@ -29,7 +25,7 @@ function App() {
             <PrivateRoute path="/" component={Dashboard} exact />
             <Route path="/login" component={Login} exact />
             <PrivateRoute path="/userlist" component={UserList} />
-            <PrivateRoute path="/postlist" component={PostsList} />
+            <PrivateRoute path="/postlist" component={PostList} />
             <PrivateRoute path="/acceptpost" component={AcceptPost} />
             <PrivateRoute path="/personal" component={PersonalPage} exact />
             <Route component={NotFoundPage} />
