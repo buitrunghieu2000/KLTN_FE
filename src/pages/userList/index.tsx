@@ -4,7 +4,7 @@ import useAuth from "../../store/auth";
 import "./style.css";
 
 export default function UserList() {
-  const LIMIT = 6;
+  const LIMIT = 5;
   const [stateAuth, actionAuth] = useAuth();
   const [currentPage, setCurrentPage] = useState<number>(0);
 

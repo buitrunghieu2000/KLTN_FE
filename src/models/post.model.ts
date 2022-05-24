@@ -1,6 +1,5 @@
 import { StringSchema } from "yup";
 import { ENUM_POST_STATUS } from "../constant/base.constant";
-
 export interface DETAIL_POST {
   _id: string;
   title: string;

@@ -24,9 +24,9 @@ function App() {
           <Switch>
             <PrivateRoute path="/" component={Dashboard} exact />
             <Route path="/login" component={Login} exact />
-            <PrivateRoute path="/userlist" component={UserList} />
-            <PrivateRoute path="/postlist" component={PostList} />
-            <PrivateRoute path="/acceptpost" component={AcceptPost} />
+            <PrivateRoute path="/userlist" component={UserList} exact />
+            <PrivateRoute path="/postlist" component={PostList} exact />
+            <PrivateRoute path="/acceptpost" component={AcceptPost} exact />
             <PrivateRoute path="/personal" component={PersonalPage} exact />
             <Route component={NotFoundPage} />
           </Switch>
