@@ -8,9 +8,6 @@
 .appContainer {
   display: flex;
 }
-/* .appSidebar {
-  flex: 1;
-} */
 
 .appLayoutContent {
   flex: 4;

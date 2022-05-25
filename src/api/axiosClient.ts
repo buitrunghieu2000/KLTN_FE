@@ -2,7 +2,7 @@ import axios, { AxiosRequestHeaders } from "axios";
 import { getFromLocalStorage } from "../helper/base.helpers";
 
 const axiosClient = axios.create({
-  baseURL: "https://marketplace111.herokuapp.com/", //sever de minh call api
+  baseURL: "http://marketplace111.herokuapp.com/", //sever de minh call api
   headers: {
     "Content-Type": "application/json",
   },

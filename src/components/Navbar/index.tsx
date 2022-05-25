@@ -57,13 +57,13 @@ const Navbar = (props: Props) => {
                 >
                   Tin nhắn
                 </Link>
-
-                <button
+                <div className="lineMenu"></div>
+                <a
                   className="menuProfile menuLinkHover text-red-500 font-bold"
                   onClick={handleLogout}
                 >
                   Đăng xuất
-                </button>
+                </a>
               </div>
             </div>
           </div>

@@ -24,16 +24,14 @@ const BoxShowImage = ({
     swipeToSlide: false,
     prevArrow: (
       <SliderArrow
-        heightImage="h-[20px]"
-        image="/icons/ic_arr_left.png"
-        classNameProps="top-[50%] left-[80px] w-[40px] h-[40px]"
+        image="/src/assets/left-arrow.svg"
+        classNameProps={styles.prevArrow}
       />
     ),
     nextArrow: (
       <SliderArrow
-        heightImage="h-[20px]"
-        image="/icons/ic_arr_right.png"
-        classNameProps="top-[50%] right-[80px] w-[40px] h-[40px]"
+        image="/src/assets/right-arrow.svg"
+        classNameProps={styles.nextArrow}
       />
     ),
     afterChange: (slide) => setCurrentShowImageIndex(slide),
@@ -62,11 +60,11 @@ const BoxShowImage = ({
         {/* Show total */}
         <div className={styles.showTotal}>
           <p className={styles.length}>
-            {/* {stateConversation.currentShowImageIndex + 1}/ */}
-            {images.length}
+            {currentShowImageIndex + 1}/{images.length}
           </p>
         </div>
         {/* Main image frame */}
+
         <div className={styles.mainFrame}>
           <Slider
             {...settings}
@@ -85,26 +83,6 @@ const BoxShowImage = ({
               ))}
           </Slider>
         </div>
-        {/* Thumbnails */}
-        <div className={styles.thumbnails}>
-          <Slider {...thumbSettings} ref={(slider) => setSliderThumb(slider)}>
-            {images.length > 0 &&
-              images.map((item, id) => (
-                <div
-                  key={id}
-                  className={` ${styles.container} ${
-                    currentShowImageIndex === id && styles.active
-                  }`}
-                >
-                  <img
-                    // className="object-cover w-full h-full rounded-[6px]"
-                    src={item}
-                    alt="thumb_image"
-                  />
-                </div>
-              ))}
-          </Slider>
-        </div>
       </div>
     </React.Fragment>
   );
@@ -113,17 +91,16 @@ const BoxShowImage = ({
 interface SliderArrowProps {
   classNameProps: string;
   image: string;
-  heightImage: string;
   onClick?: () => void;
 }
 const SliderArrow = (props: SliderArrowProps) => {
-  const { onClick, image, heightImage, classNameProps } = props;
+  const { onClick, image, classNameProps } = props;
   return (
     <div
       onClick={onClick}
       className={`${styles.sliderArrow} ${classNameProps}`}
     >
-      <div className={`${heightImage}`}>
+      <div style={{ height: "20px" }}>
         <img src={image} alt="" />
       </div>
     </div>

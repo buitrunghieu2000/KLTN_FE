@@ -11,15 +11,15 @@ import Login from "./pages/login";
 import PostList from "./pages/postsList";
 import PersonalPage from "./pages/profile";
 import UserList from "./pages/userList";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
       <div className="appContainer">
-        <div className="appSidebar">
-          <Sidebar />
-        </div>
+        <Sidebar />
         <div className="appLayoutContent">
           <Switch>
             <PrivateRoute path="/" component={Dashboard} exact />
