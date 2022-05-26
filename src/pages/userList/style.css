@@ -54,7 +54,7 @@ input {
 
 .table_section {
   overflow: auto;
-  height: 700px;
+  max-height: 500px;
 }
 
 table {

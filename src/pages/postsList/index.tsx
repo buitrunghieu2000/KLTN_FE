@@ -124,13 +124,13 @@ export default function PostList() {
               ))}
             </tbody>
           </table>
-          <Pagination
-            limit={LIMIT}
-            totalPost={statePost.totalPost}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
         </div>
+        <Pagination
+          limit={LIMIT}
+          totalPost={statePost.totalPost}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
       {pickedImages.length > 0 && (
         <BoxShowImage images={pickedImages} setImages={setPickedImages} />

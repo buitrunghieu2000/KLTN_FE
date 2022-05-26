@@ -4,7 +4,7 @@ import useAuth from "../../store/auth";
 import "./style.css";
 
 export default function UserList() {
-  const LIMIT = 5;
+  const LIMIT = 7;
   const [stateAuth, actionAuth] = useAuth();
   const [currentPage, setCurrentPage] = useState<number>(0);
 
@@ -60,13 +60,13 @@ export default function UserList() {
               ))}
             </tbody>
           </table>
-          <Pagination
-            limit={LIMIT}
-            totalPost={stateAuth.totalUser}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
         </div>
+        <Pagination
+          limit={LIMIT}
+          totalPost={stateAuth.totalUser}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </>
   );

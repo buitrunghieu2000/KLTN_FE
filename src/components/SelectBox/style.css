@@ -19,7 +19,7 @@ select::-ms-expand {
   display: none;
 }
 .select {
-  position: relative;
+  /* position: relative; */
   display: flex;
   width: 20em;
   height: 3em;
@@ -30,8 +30,8 @@ select::-ms-expand {
 }
 .select::after {
   content: "\25BC";
-  position: absolute;
-  top: 0;
+  /* position: absolute; */
+  top: 20;
   right: 0;
   padding: 0 1em;
   background: #2b2e2e;
