@@ -16,7 +16,15 @@ export const getPostByIdAsync =
   };
 
 export const getAllPostAsync =
-  ({ status, page, limit }: { status: number; page: number; limit: number }) =>
+  ({
+    status,
+    page,
+    limit,
+  }: {
+    status: ENUM_POST_STATUS;
+    page: number;
+    limit: number;
+  }) =>
   async ({ setState, getState }: Actions) => {
     const result = await postApi.getAllPost(status, page, limit);
     // console.log(`getAllPost`, result);

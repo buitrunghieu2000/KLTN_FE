@@ -22,18 +22,8 @@ const BoxShowImage = ({
 
   const settings: Settings = {
     swipeToSlide: false,
-    prevArrow: (
-      <SliderArrow
-        image="/src/assets/left-arrow.svg"
-        classNameProps={styles.prevArrow}
-      />
-    ),
-    nextArrow: (
-      <SliderArrow
-        image="/src/assets/right-arrow.svg"
-        classNameProps={styles.nextArrow}
-      />
-    ),
+    prevArrow: <SliderArrow image={2} classNameProps={styles.prevArrow} />,
+    nextArrow: <SliderArrow image={1} classNameProps={styles.nextArrow} />,
     afterChange: (slide) => setCurrentShowImageIndex(slide),
     asNavFor: navThumb as Slider,
     className: "h-full",
@@ -90,7 +80,7 @@ const BoxShowImage = ({
 
 interface SliderArrowProps {
   classNameProps: string;
-  image: string;
+  image: number;
   onClick?: () => void;
 }
 const SliderArrow = (props: SliderArrowProps) => {
@@ -101,7 +91,11 @@ const SliderArrow = (props: SliderArrowProps) => {
       className={`${styles.sliderArrow} ${classNameProps}`}
     >
       <div style={{ height: "20px" }}>
-        <img src={image} alt="" />
+        {image === 1 ? (
+          <i className="fa-solid fa-arrow-right"></i>
+        ) : (
+          <i className="fa-solid fa-arrow-left"></i>
+        )}
       </div>
     </div>
   );

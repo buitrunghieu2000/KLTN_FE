@@ -13,7 +13,7 @@ const Pagination = (props: Props) => {
 
   const totalPage = Math.ceil(totalPost / limit);
 
-  console.log(totalPage);
+  // console.log(totalPage);
 
   return (
     <div className="pagination">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BoxShowImage from "../../components/BoxShowImage";
 import Pagination from "../../components/Pagination";
+import SelectBox from "../../components/SelectBox";
 import { ENUM_POST_STATUS } from "../../constant/base.constant";
 import usePost from "../../store/post";
 import "./style.css";
@@ -11,16 +12,19 @@ export default function PostList() {
   const [statePost, actionPost] = usePost();
   const [pickedImages, setPickedImages] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(0);
+  const [statusPost, setStatusPost] = useState(
+    ENUM_POST_STATUS.WAIT_TO_CONFIRM
+  );
 
   React.useEffect(() => {
     (async () => {
       await actionPost.getAllPostAsync({
-        status: ENUM_POST_STATUS.WAIT_TO_CONFIRM,
+        status: statusPost,
         page: currentPage,
         limit: LIMIT,
       });
     })();
-  }, [currentPage]);
+  }, [currentPage, statusPost]);
 
   const handleRefusedPost = (postId: string) => {
     (async () => {
@@ -39,7 +43,13 @@ export default function PostList() {
       );
     })();
   };
+  const handleLockPost = (postId: string) => {
+    (async () => {
+      await actionPost.updatePostStatusAsync(postId, ENUM_POST_STATUS.CANCELED);
+    })();
+  };
 
+  console.log("status", statusPost);
   return (
     <>
       <div className="table">
@@ -47,8 +57,7 @@ export default function PostList() {
           <p>All Posts</p>
           <div>
             {" "}
-            <input placeholder="search" />{" "}
-            <button className="add_new">+ Add New</button>{" "}
+            <SelectBox setStatusPost={setStatusPost} />
           </div>
         </div>
         <div className="table_section">
@@ -76,24 +85,40 @@ export default function PostList() {
                   <td>{item.title}</td>
                   <td>{item.content}</td>
                   <td>
-                    {" "}
-                    <button>
-                      <i className="fa-solid fa-pen-to-square"></i>
-                    </button>
-                    <button
-                      onClick={() => {
-                        handleAcceptPost(item._id);
-                      }}
-                    >
-                      <i className="fa-solid fa-circle-check"></i>
-                    </button>
-                    <button
-                      onClick={() => {
-                        handleRefusedPost(item._id);
-                      }}
-                    >
-                      <i className="fa-solid fa-trash"></i>
-                    </button>
+                    {statusPost === 0 ? (
+                      <>
+                        <button>
+                          <i className="fa-solid fa-pen-to-square"></i>
+                        </button>
+                        <button
+                          onClick={() => {
+                            handleAcceptPost(item._id);
+                          }}
+                        >
+                          <i className="fa-solid fa-circle-check"></i>
+                        </button>
+                        <button
+                          onClick={() => {
+                            handleRefusedPost(item._id);
+                          }}
+                        >
+                          <i className="fa-solid fa-trash"></i>
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button>
+                          <i className="fa-solid fa-pen-to-square"></i>
+                        </button>
+                        <button
+                          onClick={() => {
+                            handleLockPost(item._id);
+                          }}
+                        >
+                          <i className="fa-solid fa-lock"></i>
+                        </button>
+                      </>
+                    )}
                   </td>
                 </tr>
               ))}
