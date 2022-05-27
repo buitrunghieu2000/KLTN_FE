@@ -1,4 +1,7 @@
 export interface IReqLogin {
-  email: String;
+  email: string;
   password: Number;
+}
+export interface IReqBlockUser {
+  email: string;
 }

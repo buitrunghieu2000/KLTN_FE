@@ -1,7 +1,7 @@
 import { ADMIN_MODEL, USER_MODEL } from "../../models/user.model";
 import axiosClient from "../axiosClient";
 import { ReturnReponse } from "../response.interface";
-import { IReqLogin } from "./auth.interface";
+import { IReqBlockUser, IReqLogin } from "./auth.interface";
 import { IResLogin, IResUserList } from "./auth.type";
 
 const authApi = {
@@ -21,6 +21,11 @@ const authApi = {
   ): Promise<ReturnReponse<IResUserList>> {
     const url = `admin/get-all-user?page=${page}&limit=${limit}`; //params : page, filter
     return axiosClient.get(url);
+  },
+
+  lockUser(data: IReqBlockUser): Promise<ReturnReponse<any>> {
+    const url = `admin/block-user`; //params : page, filter
+    return axiosClient.put(url, data);
   },
 };
 

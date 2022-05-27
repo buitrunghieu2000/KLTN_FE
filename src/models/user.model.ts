@@ -28,6 +28,7 @@ export interface ADMIN_MODEL {
     _id: string;
     name: string;
     phone: number;
+    email: string;
     address: {
       detail: string;
       village: string;

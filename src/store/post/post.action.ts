@@ -1,6 +1,7 @@
 import { State } from ".";
 import postApi from "../../api/post/postApi";
 import { ENUM_POST_STATUS } from "../../constant/base.constant";
+import { notifyError, notifySuccess } from "../../utils/notify";
 
 type Actions = { setState: any; getState: () => State; dispatch: any };
 
@@ -51,6 +52,8 @@ export const updatePostStatusAsync =
         (item) => item._id !== postId
       );
       setState({ ...getState(), postList: newList });
+      notifySuccess("Sucess");
       return;
     }
+    notifyError("Error");
   };

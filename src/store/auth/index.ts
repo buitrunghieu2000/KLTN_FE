@@ -5,6 +5,7 @@ import {
   loginAsync,
   logoutAsync,
   getAllUserAsync,
+  lockUser,
 } from "./auth.action";
 import { selector } from "./auth.selector";
 
@@ -22,7 +23,13 @@ const initialState: State = {
   userList: [],
 };
 
-const actions = { loginAsync, getUserAsync, logoutAsync, getAllUserAsync };
+const actions = {
+  loginAsync,
+  getUserAsync,
+  logoutAsync,
+  getAllUserAsync,
+  lockUser,
+};
 
 const Store = createStore({
   initialState,

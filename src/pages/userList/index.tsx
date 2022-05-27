@@ -14,16 +14,19 @@ export default function UserList() {
     })();
   }, [currentPage]);
 
+  const handleBlock = async (userId: string, email: string) => {
+    await actionAuth.lockUser(userId, { email: email });
+  };
+
+  const newList = stateAuth.userList.filter(
+    (item: any, i: number) => item.status === "active"
+  );
   return (
     <>
       <div className="table">
         <div className="table_header">
           <p>User List</p>
-          <div>
-            {" "}
-            <input placeholder="user" />{" "}
-            <button className="add_new">+ Add New</button>{" "}
-          </div>
+          <div> </div>
         </div>
         <div className="table_section">
           <table>
@@ -38,7 +41,7 @@ export default function UserList() {
               </tr>
             </thead>
             <tbody>
-              {stateAuth.userList.map((item, index: number) => (
+              {newList.map((item, index: number) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>
@@ -52,8 +55,10 @@ export default function UserList() {
                     <button>
                       <i className="fa-solid fa-pen-to-square"></i>
                     </button>
-                    <button>
-                      <i className="fa-solid fa-trash"></i>
+                    <button
+                      onClick={() => handleBlock(item._id, item.idUser.email)}
+                    >
+                      <i className="fa-solid fa-lock"></i>
                     </button>
                   </td>
                 </tr>

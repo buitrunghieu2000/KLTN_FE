@@ -4,6 +4,7 @@ import Pagination from "../../components/Pagination";
 import SelectBox from "../../components/SelectBox";
 import { ENUM_POST_STATUS } from "../../constant/base.constant";
 import usePost from "../../store/post";
+import { notifySuccess } from "../../utils/notify";
 import "./style.css";
 
 const LIMIT = 6;

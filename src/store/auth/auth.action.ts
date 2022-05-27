@@ -1,7 +1,8 @@
 import { State } from ".";
-import { IReqLogin } from "../../api/auth/auth.interface";
+import { IReqBlockUser, IReqLogin } from "../../api/auth/auth.interface";
 import authApi from "../../api/auth/authApi";
 import { saveToLocalStorage } from "../../helper/base.helpers";
+import { notifyError, notifySuccess } from "../../utils/notify";
 
 type Actions = { setState: any; getState: () => State; dispatch: any };
 
@@ -49,4 +50,21 @@ export const logoutAsync =
   ({ setState, getState }: Actions) => {
     localStorage.removeItem("token");
     setState({ ...getState(), isLoggedIn: false });
+  };
+
+export const lockUser =
+  (_id: string, payload: IReqBlockUser) =>
+  async ({ setState, getState }: Actions) => {
+    const result = await authApi.lockUser(payload);
+    console.log("123", result.message);
+    if (result.status === 200) {
+      // copy list post ra
+      const newList = [...getState().userList].filter(
+        (item) => item._id !== _id
+      );
+      setState({ ...getState(), userList: newList });
+      notifySuccess("Success");
+      return;
+    }
+    notifyError("Error");
   };
