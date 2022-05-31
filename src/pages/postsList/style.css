@@ -42,7 +42,7 @@ td button:nth-child(1) {
 }
 
 td button:nth-child(2) {
-  background-color: green;
+  background-color: red;
 }
 td button:nth-child(3) {
   background-color: red;

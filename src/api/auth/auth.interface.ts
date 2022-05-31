@@ -4,4 +4,5 @@ export interface IReqLogin {
 }
 export interface IReqBlockUser {
   email: string;
+  status: string;
 }

@@ -18,7 +18,10 @@ const Navbar = (props: Props) => {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">MarketPLHD</span>
+          <Link to="/">
+            {" "}
+            <span className="logo">MarketPLHD</span>
+          </Link>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">

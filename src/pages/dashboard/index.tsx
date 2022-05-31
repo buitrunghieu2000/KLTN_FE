@@ -11,12 +11,7 @@ const Dashboard = (props: Props) => {
   return (
     <div className="">
       <FeauturedInfo />
-      <Chart
-        data={userData}
-        title="User Analytics"
-        grid
-        dataKey="Active User"
-      />
+      <Chart data={userData} title="Revanue" grid dataKey="Active User" />
     </div>
   );
 };

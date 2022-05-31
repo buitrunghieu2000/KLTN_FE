@@ -79,7 +79,12 @@ export default function PostList() {
                   <td>{index + 1}</td>
                   <td>
                     <div onClick={() => setPickedImages(item.image)}>
-                      <img src={item.image[0]} />
+                      <img
+                        src={
+                          item.image[0] ||
+                          "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482930.jpg"
+                        }
+                      />
                     </div>
                   </td>
                   <td>{item.nameOfPoster}</td>
@@ -88,9 +93,6 @@ export default function PostList() {
                   <td>
                     {statusPost === 0 ? (
                       <>
-                        <button>
-                          <i className="fa-solid fa-pen-to-square"></i>
-                        </button>
                         <button
                           onClick={() => {
                             handleAcceptPost(item._id);
@@ -108,9 +110,6 @@ export default function PostList() {
                       </>
                     ) : (
                       <>
-                        <button>
-                          <i className="fa-solid fa-pen-to-square"></i>
-                        </button>
                         <button
                           onClick={() => {
                             handleLockPost(item._id);
