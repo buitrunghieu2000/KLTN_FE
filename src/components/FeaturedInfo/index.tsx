@@ -1,37 +1,43 @@
 import React from "react";
 import "./style.css";
 import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
-type Props = {};
+import { moneyFormater } from "../../utils/moneyFormater";
+type Props = {
+  totalUser: number;
+  totalRevanue: number;
+  totalPost: number;
+};
 
 const FeauturedInfo = (props: Props) => {
+  const { totalUser, totalPost, totalRevanue } = props;
   return (
     <div className="featured">
       <div className="featuredItem">
         <span className="featuredTitle">Revanue</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$2,415</span>
+          <span className="featuredMoney">{moneyFormater(totalRevanue)}</span>
           <span className="featuredMoneyRate">
-            -11.4 <ArrowDownward className="featuredIcon negative" />
+            -11 <ArrowDownward className="featuredIcon negative" />
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>
       </div>
       <div className="featuredItem">
-        <span className="featuredTitle">Sales</span>
+        <span className="featuredTitle">User</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$4,415</span>
+          <span className="featuredMoney">{totalUser}</span>
           <span className="featuredMoneyRate">
-            -1.4 <ArrowDownward className="featuredIcon negative" />
+            -14 <ArrowDownward className="featuredIcon negative" />
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>
       </div>
       <div className="featuredItem">
-        <span className="featuredTitle">Cost</span>
+        <span className="featuredTitle">Post</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$2,225</span>
+          <span className="featuredMoney">{totalPost}</span>
           <span className="featuredMoneyRate">
-            +2.4 <ArrowUpward className="featuredIcon" />
+            +3 <ArrowUpward className="featuredIcon" />
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>

@@ -57,3 +57,20 @@ export const updatePostStatusAsync =
     }
     notifyError("Error");
   };
+export const getRevanueAsync =
+  () =>
+  async ({ setState, getState }: Actions) => {
+    const result = await postApi.getRevanue();
+    console.log(`getAllRevanue`, result);
+    if (result.status === 200) {
+      // copy list post ra
+
+      setState({
+        ...getState(),
+        revanue: result.data.result,
+        totalRevanue: result.data.total,
+      });
+      return;
+    }
+    notifyError("Error");
+  };

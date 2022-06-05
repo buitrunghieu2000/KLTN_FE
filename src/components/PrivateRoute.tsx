@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
-import { Redirect, Route, RouteProps, useHistory } from "react-router-dom";
-import { DFRole } from "../constant/DFRole";
+import { Route, RouteProps, useHistory } from "react-router-dom";
 import useAuth from "../store/auth";
 import { LoadingLMS } from "./Loading";
 

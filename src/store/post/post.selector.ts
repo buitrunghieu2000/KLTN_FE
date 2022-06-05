@@ -5,5 +5,7 @@ export const selector = (state: State) => {
     postList: state.postList,
     totalPost: state.totalPost,
     postDetail: state.postDetail,
+    revanue: state.revanue,
+    totalrevanue: state.totalRevanue,
   };
 };

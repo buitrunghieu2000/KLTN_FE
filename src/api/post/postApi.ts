@@ -19,6 +19,10 @@ const postApi = {
     const url = `post/update-post?postId=${id}`; //params : page, filter
     return axiosClient.put(url, data);
   },
+  getRevanue() {
+    const url = `post/revenue-month?year=2022`; //params : page, filter
+    return axiosClient.get(url);
+  },
 };
 
 export default postApi;

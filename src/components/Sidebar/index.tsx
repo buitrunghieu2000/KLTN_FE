@@ -28,14 +28,6 @@ export default function Sidebar() {
                 <LineStyle className="sidebarIcon" /> Home
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/acceptpost"
-                activeClassName="sidebarListItem active"
-              >
-                <CheckCircle className="sidebarIcon" /> Acceptpost
-              </NavLink>
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -51,17 +43,7 @@ export default function Sidebar() {
                 <PostAdd className="sidebarIcon" /> Post
               </NavLink>
             </li>
-            {/* <Link to="/postslist" className="link">
-              <li
-                onClick={() => {
-                  handleChangeName(2);
-                }}
-                className={`sidebarListItem ${name === 2 && "active"}`}
-              >
-                <Storefront className="sidebarIcon" />
-                Post
-              </li>
-            </Link> */}
+
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
               Transactions
