@@ -24,27 +24,22 @@ const Navbar = (props: Props) => {
           </Link>
         </div>
         <div className="topRight">
-          <div className="topbarIconContainer">
+          {/* <div className="topbarIconContainer">
             <NotificationsNone />
             <span className="topIconBadge">2</span>
           </div>
           <div className="topbarIconContainer">
             <Language />
             <span className="topIconBadge">2</span>
-          </div>
-          <div className="topbarIconContainer">
+          </div> */}
+          {/* <div className="topbarIconContainer">
             <Settings />
-          </div>
-          {/* <img
-            src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="topAvatar"
-          /> */}
+          </div> */}
+
           <div className="wrap_menuAvatar">
             <div className="iconAvatar">
               <img
-                // src={stateAuth.auth ? stateAuth.auth.avatar : DEFAULT_AVATAR}
-                src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t1.6435-9/134454217_2852424525075613_6158247242724837492_n.jpg?_nc_cat=108&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=Ya9nhauGKLYAX97Kod5&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT_T4VaGY04lpzSwagxghy1OmuEJ9UE-KicN8jwgUQElHQ&oe=62ABD617"
+                src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t1.6435-9/134454217_2852424525075613_6158247242724837492_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1hOVq82g8h0AX973nmE&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT96gVYE-UYFsd3UCRs_xp0j443f-oo1n-us_o17V4Ub8w&oe=62D36317"
                 className="w-full h-full object-cover rounded-[50%] user_avatar"
                 alt="avatar"
               />

@@ -18,6 +18,7 @@ const SelectBox = (props: Props) => {
         <select name="format" id="format" onChange={handleSelect}>
           <option value="0">WAIT TO CONFIRM</option>
           <option value="2">DISPLAYING</option>
+          <option value="3">LOCKED</option>
         </select>
       </div>
     </div>

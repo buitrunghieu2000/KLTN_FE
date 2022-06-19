@@ -13,6 +13,7 @@ import PersonalPage from "./pages/profile";
 import UserList from "./pages/userList";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import TransactionSuccess from "./components/TransactionSuccess";
 
 function App() {
   return (
@@ -27,6 +28,11 @@ function App() {
             <PrivateRoute path="/userlist" component={UserList} exact />
             <PrivateRoute path="/postlist" component={PostList} exact />
             <PrivateRoute path="/personal" component={PersonalPage} exact />
+            <Route
+              path="/transactionsuccess"
+              component={TransactionSuccess}
+              exact
+            />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

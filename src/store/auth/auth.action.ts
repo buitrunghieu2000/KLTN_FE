@@ -11,7 +11,7 @@ export const loginAsync =
   async ({ setState, getState }: Actions) => {
     const result = await authApi.login(payload);
     // console.log(result);
-    if (result.status === 200) {
+    if (result.status === 200 && result.data.role === "admin") {
       saveToLocalStorage("token", result.data.accessToken);
       setState({ ...getState(), isLoggedIn: true });
       return true;

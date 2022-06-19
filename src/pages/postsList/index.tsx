@@ -108,7 +108,7 @@ export default function PostList() {
                           <i className="fa-solid fa-trash"></i>
                         </button>
                       </>
-                    ) : (
+                    ) : statusPost === 2 ? (
                       <>
                         <button
                           onClick={() => {
@@ -116,6 +116,16 @@ export default function PostList() {
                           }}
                         >
                           <i className="fa-solid fa-lock"></i>
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          onClick={() => {
+                            handleAcceptPost(item._id);
+                          }}
+                        >
+                          <i className="fa-solid fa-unlock"></i>
                         </button>
                       </>
                     )}
