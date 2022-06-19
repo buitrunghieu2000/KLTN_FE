@@ -1,15 +1,13 @@
-import { Button } from "@material-ui/core";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { notifySuccess } from "../../utils/notify";
 import "./style.css";
 type Props = {};
 
 const TransactionSuccess = (props: Props) => {
-  const [click, setClick] = useState(1);
+  const [unmount, setUnmount] = useState(0);
   React.useEffect(() => {
-    notifySuccess("Thanh toan thanh cong");
-  });
+    notifySuccess("Payment Success");
+  }, []);
   return (
     <div className="transactionWrapper">
       <div className="transactionContainer">

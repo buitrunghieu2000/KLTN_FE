@@ -39,11 +39,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 55%;
+  margin-top: 52%;
   flex-direction: column;
 }
 .btnTransaction {
   background-color: green;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  color: white;
 }
 .transactionBody p:first-child {
   font-style: oblique;
@@ -56,7 +60,7 @@
 @media only screen and (max-width: 46.1875em) {
   .transactionContainer {
     width: 70%;
-    height: 50%;
+    height: 60%;
     border-radius: 10px;
     background-color: white;
     background-image: url("https://cdn.dribbble.com/users/614270/screenshots/14575431/media/4907a0869e9ed2ac4e2d1c2beaf9f012.gif");
@@ -74,6 +78,10 @@
   }
   .btnTransaction {
     background-color: green;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color: white;
   }
   .transactionBody p:first-child {
     font-style: oblique;
