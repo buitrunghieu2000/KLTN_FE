@@ -10,7 +10,7 @@ function PersonalPage({}: Props) {
   return (
     <div className="box">
       <img
-        src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t1.6435-9/134454217_2852424525075613_6158247242724837492_n.jpg?_nc_cat=108&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=Ya9nhauGKLYAX97Kod5&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT_T4VaGY04lpzSwagxghy1OmuEJ9UE-KicN8jwgUQElHQ&oe=62ABD617"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
         alt=""
         className="box-img"
       />

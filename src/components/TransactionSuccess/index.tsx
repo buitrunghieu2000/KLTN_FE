@@ -6,7 +6,9 @@ type Props = {};
 const TransactionSuccess = (props: Props) => {
   const [unmount, setUnmount] = useState(0);
   React.useEffect(() => {
-    notifySuccess("Payment Success");
+    setTimeout(() => {
+      notifySuccess("Payment Success");
+    }, 500);
   }, []);
   return (
     <div className="transactionWrapper">

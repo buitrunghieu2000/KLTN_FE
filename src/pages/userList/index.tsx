@@ -55,7 +55,7 @@ export default function UserList() {
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>
-                    <img src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t1.6435-9/134454217_2852424525075613_6158247242724837492_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=8wqh7dJbgBYAX9hvE3r&_nc_ht=scontent.fsgn5-15.fna&oh=00_AT-xjfQDcusaScpCfAw0htTEFku5kRedsE_bwByaQzNqNw&oe=62B3BF17" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" />
                   </td>
                   <td>{item.idUser.name}</td>
                   <td>{item.username}</td>
