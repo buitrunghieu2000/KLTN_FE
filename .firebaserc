@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "admin-marketplhd"
-  }
+    "admin": "admin-mkplhd-af9d0",
+    "default": "admin-mkplhd-af9d0"
+  },
+  "targets": {}
 }

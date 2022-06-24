@@ -1,7 +1,7 @@
 .topbar {
   width: 100%;
   height: 50px;
-  background-color: white;
+  background: linear-gradient(to bottom left, #33ccff 0%, #ff99cc 100%);
   position: sticky;
   top: 0;
 }
@@ -70,7 +70,7 @@
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
   -o-transform: translateY(100%);
-  z-index: 999;
+  z-index: 1500;
   /* display: block; */
   display: none;
 }

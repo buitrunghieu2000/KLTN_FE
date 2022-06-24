@@ -14,6 +14,7 @@ import UserList from "./pages/userList";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TransactionSuccess from "./components/TransactionSuccess";
+import PostDetail from "./pages/postDetail";
 
 function App() {
   return (
@@ -33,6 +34,12 @@ function App() {
               component={TransactionSuccess}
               exact
             />
+            <PrivateRoute
+              path="/postlist/postdetail/:id"
+              component={PostDetail}
+              exact
+            />
+
             <Route component={NotFoundPage} />
           </Switch>
         </div>

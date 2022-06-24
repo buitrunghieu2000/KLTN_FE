@@ -9,9 +9,11 @@
 .appContainer {
   display: flex;
 }
-
+.sidebar {
+  width: 20%;
+}
 .appLayoutContent {
-  flex: 4;
+  width: 80%;
 }
 
 a:link {

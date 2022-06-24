@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import BoxShowImage from "../../components/BoxShowImage";
 import Pagination from "../../components/Pagination";
 import SelectBox from "../../components/SelectBox";
@@ -16,6 +17,8 @@ export default function PostList() {
   const [statusPost, setStatusPost] = useState(
     ENUM_POST_STATUS.WAIT_TO_CONFIRM
   );
+
+  const history = useHistory();
 
   React.useEffect(() => {
     (async () => {
@@ -50,7 +53,10 @@ export default function PostList() {
     })();
   };
 
-  console.log("status", statusPost);
+  const handleChangePage = (id: string) => {
+    history.push(`/postlist/postdetail/${id}`);
+  };
+
   return (
     <>
       <div className="table">
@@ -88,7 +94,14 @@ export default function PostList() {
                     </div>
                   </td>
                   <td>{item.nameOfPoster}</td>
-                  <td>{item.title}</td>
+                  {statusPost === 2 ? (
+                    <td onClick={() => handleChangePage(item._id)}>
+                      {item.title}
+                    </td>
+                  ) : (
+                    <td>{item.title}</td>
+                  )}
+
                   <td>{item.content}</td>
                   <td>
                     {statusPost === 0 ? (

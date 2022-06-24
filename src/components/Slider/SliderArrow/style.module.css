@@ -1,0 +1,14 @@
+.sliderArr {
+  /* cursor-pointer bg-black bg-opacity-40 active:bg-opacity-70 rounded-[100%] absolute translate-y-[-50%] flex justify-center items-center z-30
+     */
+  cursor: pointer;
+  background-color: black;
+  opacity: 70%;
+  border-radius: 100%;
+  position: absolute;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+}
