@@ -6,7 +6,7 @@ import BoxUserSelect from "./BoxUser";
 import "./style.css";
 
 export default function UserList() {
-  const LIMIT = 7;
+  const LIMIT = 6;
   const [stateAuth, actionAuth] = useAuth();
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [active, setActive] = useState("active");
@@ -55,7 +55,13 @@ export default function UserList() {
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" />
+                    <img
+                      src={
+                        item.idUser.avatar === "nope"
+                          ? "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
+                          : item.idUser.avatar
+                      }
+                    />
                   </td>
                   <td>{item.idUser.name}</td>
                   <td>{item.username}</td>

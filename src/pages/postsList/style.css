@@ -63,11 +63,6 @@ input {
   color: #0298cf;
 }
 
-.table_section {
-  overflow: auto;
-  max-height: 500px;
-}
-
 table {
   width: 100%;
   table-layout: fixed;

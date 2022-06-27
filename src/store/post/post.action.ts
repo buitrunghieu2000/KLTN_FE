@@ -61,7 +61,7 @@ export const getRevanueAsync =
   () =>
   async ({ setState, getState }: Actions) => {
     const result = await postApi.getRevanue();
-    console.log(`getAllRevanue`, result);
+    // console.log(`getAllRevanue`, result);
     if (result.status === 200) {
       // copy list post ra
 

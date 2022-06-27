@@ -9,12 +9,6 @@ import noImage from "../../assets/images/noImage.png";
 
 const ImageSlide = ({ images }: { images: Array<string> | undefined }) => {
   const [currentImage, setCurrentImage] = React.useState(0);
-  console.log("currentImage", currentImage);
-  React.useEffect(() => {
-    return () => {
-      console.log("out");
-    };
-  }, []);
 
   if (images && getLengthArray(images) > 0)
     return (
@@ -52,7 +46,7 @@ const ImageSlide = ({ images }: { images: Array<string> | undefined }) => {
             slidesToShow: 1,
             slidesToScroll: 1,
             afterChange: (index) => {
-              console.log("change", index);
+              // console.log("change", index);
               setCurrentImage(index);
             },
           }}

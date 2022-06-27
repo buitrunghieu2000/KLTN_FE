@@ -39,7 +39,11 @@ const Navbar = (props: Props) => {
           <div className="wrap_menuAvatar">
             <div className="iconAvatar">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
+                src={
+                  stateAuth.auth?.user.avatar === "nope"
+                    ? "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
+                    : stateAuth.auth?.user.avatar
+                }
                 className="w-full h-full object-cover rounded-[50%] user_avatar"
                 alt="avatar"
               />

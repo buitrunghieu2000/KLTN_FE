@@ -10,7 +10,11 @@ function PersonalPage({}: Props) {
   return (
     <div className="box">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
+        src={
+          stateAuth.auth?.user.avatar === "nope"
+            ? "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
+            : stateAuth.auth?.user.avatar
+        }
         alt=""
         className="box-img"
       />

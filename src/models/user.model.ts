@@ -13,6 +13,7 @@ export interface USER_MODEL {
     };
     ratings: number;
     posts: number;
+    avatar: string;
   };
   role: string;
 }
@@ -38,6 +39,7 @@ export interface ADMIN_MODEL {
     };
     ratings: number;
     posts: number;
+    avatar: string;
   };
   // };
 }

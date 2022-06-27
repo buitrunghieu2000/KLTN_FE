@@ -38,4 +38,6 @@ export interface DETAIL_POST {
   isAdvertised: Boolean;
   priceAdvert: number;
   totalPrice: number;
+  avatarOfPoster: string;
+  dateStartPost: Date;
 }

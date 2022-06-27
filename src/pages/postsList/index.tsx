@@ -8,9 +8,8 @@ import usePost from "../../store/post";
 import { notifySuccess } from "../../utils/notify";
 import "./style.css";
 
-const LIMIT = 6;
-
 export default function PostList() {
+  const LIMIT = 6;
   const [statePost, actionPost] = usePost();
   const [pickedImages, setPickedImages] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(0);
