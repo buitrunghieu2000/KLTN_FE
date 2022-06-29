@@ -17,7 +17,7 @@ const FeauturedInfo = (props: Props) => {
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">{moneyFormater(totalRevanue)}</span>
           <span className="featuredMoneyRate">
-            -11 <ArrowDownward className="featuredIcon negative" />
+            -50.000 <ArrowDownward className="featuredIcon negative" />
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>
@@ -27,7 +27,7 @@ const FeauturedInfo = (props: Props) => {
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">{totalUser}</span>
           <span className="featuredMoneyRate">
-            -14 <ArrowDownward className="featuredIcon negative" />
+            -5 <ArrowDownward className="featuredIcon negative" />
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>

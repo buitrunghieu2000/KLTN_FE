@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import BoxShowImage from "../../components/BoxShowImage";
 import Pagination from "../../components/Pagination";
 import SelectBox from "../../components/SelectBox";
 import { ENUM_POST_STATUS } from "../../constant/base.constant";
 import usePost from "../../store/post";
-import { notifySuccess } from "../../utils/notify";
+
 import "./style.css";
 
 export default function PostList() {
   const LIMIT = 6;
   const [statePost, actionPost] = usePost();
+
   const [pickedImages, setPickedImages] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [statusPost, setStatusPost] = useState(
@@ -73,8 +74,10 @@ export default function PostList() {
                 <th>S No.</th>
                 <th>Image</th>
                 <th>Poster</th>
-                <th>Title</th>
-                <th>Description</th>
+                <th style={{ width: "17%" }}>Title</th>
+                <th style={{ width: "25%" }}>Description</th>
+                {statusPost === 2 && <th>Reports</th>}
+
                 <th>Action</th>
               </tr>
             </thead>
@@ -102,6 +105,7 @@ export default function PostList() {
                   )}
 
                   <td>{item.content}</td>
+                  {statusPost === 2 && <td>0</td>}
                   <td>
                     {statusPost === 0 ? (
                       <>

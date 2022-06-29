@@ -29,7 +29,7 @@ export default function UserList() {
   };
 
   const newList = stateAuth.userList.filter(
-    (item: any, i: number) => item.status === active
+    (item: any, i: number) => item.status === active && item.role === "user"
   );
   return (
     <>

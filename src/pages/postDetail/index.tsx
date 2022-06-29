@@ -22,12 +22,17 @@ import ImageSlider from "../../components/ImageSlider";
 import BasicModal from "../../components/Modal";
 import { ENUM_POST_STATUS } from "../../constant/base.constant";
 import usePost from "../../store/post";
+import useReport from "../../store/report";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Link from "@mui/material/Link";
 import "./style.css";
+import { notifyError, notifySuccess } from "../../utils/notify";
 
 type Props = {};
 
 const PostDetail = (props: Props) => {
   const [statePost, actionPost] = usePost();
+  const [stateReport, actionReport] = useReport();
   const [open, setOpen] = React.useState(false);
   const [comments, setComments] = useState<any>([]);
   const handleOpen = () => setOpen(true);
@@ -48,16 +53,43 @@ const PostDetail = (props: Props) => {
     })();
   };
 
+  const params = {
+    postID: id,
+  };
+
   React.useEffect(() => {
     (async () => {
-      const result = await commentsApi.getComments(id);
+      const result = await commentsApi.getComments(params);
       const { data } = result;
       setComments(data);
     })();
   }, []);
 
+  React.useEffect(() => {
+    (async () => {
+      await actionReport.getReportByIdAsync({
+        page: 0,
+        limit: 10,
+        idPost: id,
+      });
+    })();
+  }, []);
+
+  const handleDeleteComment = async (commentId: string) => {
+    const result = await commentsApi.deleteComments({ commentId: commentId });
+    if (result.status === 200) {
+      notifySuccess("Success");
+    } else notifyError("Fail");
+    console.log("result", result);
+  };
   return (
     <div className="postWrapper" style={{ marginTop: "10px" }}>
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link underline="hover" color="inherit" href="/postlist">
+          Post
+        </Link>
+        <Typography color="text.primary">DetailPost</Typography>
+      </Breadcrumbs>
       <Grid container spacing={1}>
         <Grid item xs={6}>
           <ImageSlider images={statePost.postDetail?.image} />
@@ -66,7 +98,10 @@ const PostDetail = (props: Props) => {
           <Grid container spacing={1}>
             <Grid item xs={6}>
               {" "}
-              <Card sx={{ minHeight: 500 }}>
+              <Card
+                sx={{ minHeight: 500 }}
+                style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}
+              >
                 <CardHeader
                   avatar={
                     <Avatar
@@ -115,7 +150,10 @@ const PostDetail = (props: Props) => {
               </Card>
             </Grid>
             <Grid item xs={6}>
-              <Card sx={{ minHeight: 500 }}>
+              <Card
+                sx={{ minHeight: 500 }}
+                style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}
+              >
                 {comments.length === 0 ? (
                   <p style={{ textAlign: "center" }}>
                     This post has no comments yet...
@@ -127,28 +165,40 @@ const PostDetail = (props: Props) => {
                       bgcolor: "background.paper",
                     }}
                   >
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>
-                        <Avatar
-                          alt="Remy Sharp"
-                          src="/static/images/avatar/1.jpg"
-                        />
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary="Brunch this weekend?"
-                        secondary={
-                          <React.Fragment>
-                            {
-                              " — I'll be in your neighborhood doing errands this…"
+                    {comments.map((items: any, index: any) => (
+                      <>
+                        {" "}
+                        <ListItem alignItems="flex-start" key={index}>
+                          <ListItemAvatar>
+                            <Avatar
+                              alt="Remy Sharp"
+                              src={items.idUserComment.avatar}
+                            />
+                          </ListItemAvatar>
+                          <ListItemText
+                            primary={
+                              <>
+                                {items.idUserComment.name}{" "}
+                                {dayjs(items.createdAt).format("DD/MM/YYYY")}
+                              </>
                             }
-                            <IconButton>
-                              <Delete />
-                            </IconButton>
-                          </React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
+                            secondary={
+                              <React.Fragment>
+                                {items.text}
+                                <IconButton
+                                  onClick={() => {
+                                    handleDeleteComment(items._id);
+                                  }}
+                                >
+                                  <Delete />
+                                </IconButton>
+                              </React.Fragment>
+                            }
+                          />
+                        </ListItem>
+                        <Divider variant="inset" component="li" />
+                      </>
+                    ))}
                   </ListShow>
                 )}
               </Card>

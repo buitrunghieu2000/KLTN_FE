@@ -78,7 +78,7 @@ const Dashboard = (props: Props) => {
   ];
 
   return (
-    <div className="">
+    <div>
       <FeauturedInfo
         totalRevanue={statePost.totalrevanue}
         totalPost={statePost.totalPost}

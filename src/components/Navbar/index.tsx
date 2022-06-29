@@ -18,9 +18,10 @@ const Navbar = (props: Props) => {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
+          <div className="lightBar"></div>
           <Link to="/">
             {" "}
-            <span className="logo">MarketPLHD</span>
+            <span className="logo">MarketHD</span>
           </Link>
         </div>
         <div className="topRight">

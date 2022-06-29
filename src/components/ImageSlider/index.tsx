@@ -18,7 +18,7 @@ const ImageSlide = ({ images }: { images: Array<string> | undefined }) => {
           width: "100%",
           height: "500px",
           position: "relative",
-          boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
+          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
           // border: "1px solid black",
           borderRadius: "5px",
           backgroundColor: "white",
